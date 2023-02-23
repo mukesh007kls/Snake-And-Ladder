@@ -66,8 +66,6 @@ public class Main {
                     rollingRotation=false;
                     break;
             }
-
-
         }
         return startPosition;
     }
