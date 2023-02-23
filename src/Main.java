@@ -57,6 +57,9 @@ public class Main {
                 case SNAKE:
                     startPosition -= rollingDice;
                     rollingRotation=false;
+                    if (startPosition < 0) {
+                        startPosition = 0;
+                    }
                     break;
                 //Default gets implemented when the player doesnt get reach where there isn't any snake or ladder
                 default:
@@ -64,9 +67,7 @@ public class Main {
                     break;
             }
 
-            if (startPosition < 0) {
-                startPosition = 0;
-            }
+
         }
         return startPosition;
     }
