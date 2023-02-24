@@ -7,35 +7,35 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Snake And Ladder Game Program");
-        int startPos = 0;
+        int startPosition = 0;
 
-        while (startPos <= WIN_POSITION) {
+        while (startPosition <= WIN_POSITION) {
             int rollingDice = (int) (Math.random() * 10) % 6 + 1;
             //Snake or ladder option--sol
             int sol = (int) (Math.random() * 10) % 3;
 
             switch (sol) {
                 case LADDER:
-                    startPos += rollingDice;
+                    startPosition += rollingDice;
                     if(startPos>WIN_POSITION){
-                        startPos-=rollingDice;
+                        startPosition-=rollingDice;
                     }
                     break;
                 case SNAKE:
-                    startPos -= rollingDice;
+                    startPosition -= rollingDice;
                     break;
             }
 
-            if(startPos<0){
-                startPos=0;
+            if(startPosition<0){
+                startPosition=0;
             }
 
-            if(startPos==WIN_POSITION){
+            if(startPosition==WIN_POSITION){
                 System.out.println("Player Reached Win Position");
                 break;
             }
 
-            System.out.println("Position of player:-"+startPos);
+            System.out.println("Position of player:-"+startPosition);
         }
 
     }
