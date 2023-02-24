@@ -7,11 +7,11 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Welcome to Snake And Ladder Game Program");
-        int startPos = 0;
+        int startPosition = 0;
         //number of time dice rolled -- notdr
         int notdr = 0;
 
-        while (startPos <= WIN_POSITION) {
+        while (startPosition <= WIN_POSITION) {
             int rollingDice = (int) (Math.random() * 10) % 6 + 1;
             notdr++;
             //Snake or ladder option--sol
@@ -19,26 +19,27 @@ public class Main {
 
             switch (sol) {
                 case LADDER:
-                    startPos += rollingDice;
-                    if (startPos > WIN_POSITION) {
-                        startPos -= rollingDice;
+                    startPosition += rollingDice;
+                    if (startPosition > WIN_POSITION) {
+                        startPosition -= rollingDice;
                     }
                     break;
                 case SNAKE:
-                    startPos -= rollingDice;
+                    startPosition -= rollingDice;
+                    if (startPosition < 0) {
+                           startPosition = 0;
+                    }
                     break;
             }
 
-            if (startPos < 0) {
-                startPos = 0;
-            }
+            
 
-            if (startPos == WIN_POSITION) {
-                System.out.println("Player Reached Win Position:- " + startPos + " Number of time dice rolled:- " + notdr);
+            if (startPosition == WIN_POSITION) {
+                System.out.println("Player Reached Win Position:- " + startPosition + " Number of time dice rolled:- " + notdr);
                 break;
             }
 
-            System.out.println("Position of player:- " + startPos + " Number of time dice rolled:- " + notdr);
+            System.out.println("Position of player:- " + startPosition + " Number of time dice rolled:- " + notdr);
         }
 
     }
